@@ -1,20 +1,20 @@
-# ===============================
-#  AI Doctor Flask App (Python 3.11)
-# ===============================
+# =====================================
+#   AI Doctor Flask App (Python 3.11.0)
+# =====================================
 FROM python:3.11-slim
 
-# Set working directory
+# Set working directory inside the container
 WORKDIR /app
 
-# Copy project files into container
+# Copy all project files into container
 COPY . .
 
-# Install build tools and dependencies
+# Upgrade build tools and install dependencies
 RUN pip install --upgrade pip setuptools wheel && \
     pip install -r requirements.txt
 
-# Expose default Flask port
+# Expose Flask default port
 EXPOSE 5000
 
-# Run Flask app (Render automatically provides PORT env)
+# Run Flask app (Render automatically sets PORT)
 CMD ["python", "app.py"]
